@@ -7,17 +7,44 @@ typedef struct node{
     struct node* next;
 }Node;
 
-Node* addtoEmpty(Node* head, int data);
+void traverse(Node* list);
+
+
 int main(){
 
+
+    Node* head = malloc(sizeof(Node));
+    Node* list;
+
+    int limit;
+    printf("Enter the limit: ");
+    scanf("%d", &limit);
+
+    printf("Enter the elements: ");
+    scanf("%d", &head->data);
+    head->prev = NULL;
+    head->next = NULL;
+
+    list = head;
+    for(int i = 0; i<limit-1; i++)
+    {
+        Node* temp = malloc(sizeof(Node));
+        scanf("%d", &temp->data);
+        temp->next = NULL;
+        temp->prev = list;
+        list->next = temp;
+        list = list->next;
+    }
+
+    list = head;
+    traverse(list);
 }
 
-Node* addtoEmpty(Node* head, int data){
-    Node* temp = malloc(sizeof(Node));
-    temp->prev = NULL;
-    temp->data = data;
-    temp->next = NULL;
-    head = temp;
-    return head;
-
+void traverse(Node* list){
+    printf("the list is: \n");
+    while(list != NULL) 
+    {
+    printf("%d ", list->data);
+    list = list->next;
+    }
 }
