@@ -41,7 +41,6 @@ int main(){
 }
 
 void traverse(Node* list){
-    printf("the list is: \n");
     while(list != NULL) 
     {
     printf("%d ", list->data);
