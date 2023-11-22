@@ -188,7 +188,7 @@ void deleteTree(struct node *tree)
     else
         return;
 }
-// todo main function
+// main function
 int main()
 {
     int tn, TEN, TIN, height;
