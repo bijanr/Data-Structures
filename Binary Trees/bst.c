@@ -41,7 +41,7 @@ void insertElement()
             parentptr->right = newnode;
     }
 }
-//todo Preorder Traversal (recursion)--2
+//todo Preorder Traversal (recursion)
 void preorderTraversal(struct node *node)
 {
     if (node == NULL)
