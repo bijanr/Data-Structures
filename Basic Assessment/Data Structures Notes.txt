@@ -1,0 +1,138 @@
+Abstract Data Type is a type (or class) for objects whose behaviour is defined ny a set of values and a set of operations.
+It does not specify how data will be organised in the memory and what algorithms will be used for implementing the operations.
+The process of providing only the essentials and hiding the details is known as abstraction
+A data structure is a particular way of organizing data in a computer so that it can be used effectively.
+
+A data structure is a storage that is used to store and organize data. It is a way of arranging data on a computer 
+so that it can be accessed and updated efficienty.
+
+A data structure is a group of data elements that provides the easiest way to store and perform different actions on the data of 
+the computer.
+An efficient data structure also uses minimum memory space and execution time to process the structure.
+
+-- Need of Data Strudture: 
+The structure of the data and the synthesis of the algorithm are relative to each other.
+Data structure provide an easy way of organizing, retrieving, managing, and storing data.
+
+1. Data structure modification is easy.
+2. It requires less time.
+3. Save memory space. (Storage)
+4. Data representation is easy.
+5. Easy access to the large database.
+
+-- Classification of data structures 
+1. Primitive DS - Directly supported by the language
+2. Non- Primitive DS(Linear and Non-Linear) - Not defined by the programming language. 
+
+    Linear DS- Data elements are arranged sequentially or linearly, where each element is attached to its previou and next adjacent elements.
+    For eg, Linked list, Stack, Queue, Array
+        Static DS - Has a fixed memory size. Easier to access the elements in a static data structure. For eg, Arrays
+
+        Dymanic DS - The size is not fixed. It can be randomly updated during the runtime which may be considered efficient considering
+        the space complexity of the code. For eg, Stack, Queue and Linked list.
+    
+    Non- Linear DS- Data elements are not arranged sequentially or linearly. We cant traverse all the elements in a single run.
+    For eg, Trees, Graphs, Sets, Tables and Multi-Dimensional Arrays.
+
+
+--Operations on Data structures
+    1. Traversing
+    2. Searching 
+    3. Inserting
+    4. Deleting
+    5. Sorting
+    6. Merging
+    
+LINKED LIST 
+
+A linked list is a data structure used for storing collections of data. A linked list has the properties: 
+1. Successive elements are connected to pointers.
+2. The last element points to NULL.
+3. Can grow or shrink in size during execution of program.
+4. Can be made just as long as required( until the system memory exhausts).
+5. Does not waste memory space (but takes extra memory for pointers).
+6. It allocates memory as list grows.
+
+    Q. Create linked list; insert and delete element from any position.
+    Q. Sort the following linked list in ascending or descending order.
+    Q. Create a list containing natural numbers, find the average of all elements.
+
+Main Linked List Operations- 
+1. Insertion- Inserts an element into a list.
+2. Deletion- Removes and Returns the specified position element form the list.
+
+Auxillary Linked List Operations- 
+1. Delete List: Remove all the elements from the list.
+2. COunt: Returns the number of elements of the list.
+3. Find the nth node from the end of the list.
+
+    Arrays are efficient for Constant Time Access: 
+        Advantages of array: 
+            1. Simple and easy to use.
+            2. Faster Access to the elements (constant time)
+
+        Disadvantages of array: 
+            1. Preallocates all needed memory up front and wastes memory space for indices.
+            2. Fixed size
+            3. One block allocation- It may not be possible to get the available memory for the complete array if it is big.
+            4. Complex position-based insertion- to insert an element in n position we need to shift all the elements.
+
+Linked-List Advantages: 
+    1. They can be expanded in constant time, but in array we need to allocate memory for certain number of elements.
+    2. With linked list, we can start with space for just one allocated element and add on new elements easily without the need to do any copying 
+    and realocating.
+
+Disadvantages: 
+    1. Access time to individual elements.
+    2. Arrays have O(1) access time whereas Linked list have O(n).
+    3. The overhead with storing and retrieving data can make a big difference.
+    4. Linked lists are sometime hard to manipulate.
+    5. Linked lists wastes memory in terms pf extra reference pointers.
+
+Types of Linked list: 
+    1. Singly
+    2. Doubly
+    3. Circular 
+
+
+Trees
+Free Tree- Initial type tree with no well defined root.
+Rooted Tree- A tree having well defined root node and having a directed graph.
+
+Full Binary tree- Every intermediate node has exacty 2 children.
+
+Complete Binary Tree- Every intermediate node has exacty 2 children and all leaf nodes are in the same level.
+
+Almost Binary Tree- Every intermediate node has exacty 2 children and all leaf nodes are in the same level
+and are in level H or H-1 and filling all intermediate nodes from left to right.
+
+
+Total degree = 2 * e (where, e is number of edges)
+
+N = If N number nodes
+P = If P number of leaf nodes having degree 1 = (P * 1)
+R = root having degree 2 = (1(root) * 2)
+All intermediate nodes except root and leaf nodes = (N - P - 1)
+Total Degree = 2(N-1)
+P*1 + 1*2 + P-N-1 * 3 = 2(N-1)
+
+Total number of full nodes = n+1/ 2
+Total number of intermediate nodes = n-1/ 2
+
+Q. Consider a full k-ary tree. Find out the number of leaf nodes.
+Q.For a complete binary tree, H is the height and N is the number of nodes. Therefore, find the relation between N and H.
+If height is H there are 2^H number of nodes and also (N+1)/2 so, 2^H = (N+1)/ 2
+                                                                  h = ln(n+1/ 2)
+                                                                  h = ln(n+1) - ln(2)
+                                                                  h = ln(n+1) - 1
+
+                                                    From Gp series, 
+                                                    2^0 + 2^1 + 2^h = N
+                                                    2^(h+1) -1 / (2-1) = n+1
+                                                    2^h+1 = n+1
+                                                    h+1 = log(n+1)
+                                                    so,  h = ln(n+1) - 1
+
+
+
+

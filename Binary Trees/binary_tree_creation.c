@@ -16,6 +16,10 @@ treeNode *createNode(int data){
 }
 
 void printTree(treeNode *tree){
+    printf("%d ", tree->data);
+    printf("%d ", tree->left);
+    printf("%d ", tree->right);
+
 }
 
 int main(){
