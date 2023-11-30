@@ -1,0 +1,1 @@
+/*1. Push: is used to add new elements in to the stack. At the time of addition first check the stack is ful or not */

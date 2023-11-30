@@ -136,3 +136,8 @@ If height is H there are 2^H number of nodes and also (N+1)/2 so, 2^H = (N+1)/ 2
 
 
 
+
+                                        STACK
+1. Push: is used to add new elements in to the stack. At the time of addition first check the stack is ful or not 
+2. Pop: is used to delete elements from the stack. At the time of deletion first check the stack is empty or not. If the stack is empty, it genera6es an error message "stack underflow".
+
