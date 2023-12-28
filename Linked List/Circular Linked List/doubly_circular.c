@@ -262,29 +262,29 @@ void input(Node* list, int i, int size) {
 }
 
 void sortLinkedList(Node* list) {
-    if (list == NULL || list->next == list) {
-        // Empty list or only one element, no need to sort
-        return;
-    }
-
-    Node *temp, *end = NULL;
     int swapped;
+    Node* ptr1;
+    Node* lptr = NULL;
+
+    if (list == NULL)
+        return;
 
     do {
         swapped = 0;
-        temp = list;
+        ptr1 = list;
 
-        while (temp->next != end) {
-            if (temp->data > temp->next->data) {
+        while (ptr1->next != lptr) {
+            if (ptr1->data > ptr1->next->data) {
                 // Swap data
-                int t = temp->data;
-                temp->data = temp->next->data;
-                temp->next->data = t;
+                int temp = ptr1->data;
+                ptr1->data = ptr1->next->data;
+                ptr1->next->data = temp;
 
                 swapped = 1;
             }
-            temp = temp->next;
+            ptr1 = ptr1->next;
         }
-        end = temp;
+        lptr = ptr1;
     } while (swapped);
 }
+
