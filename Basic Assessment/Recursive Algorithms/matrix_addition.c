@@ -1,8 +1,25 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-#define MAX_SIZE 10
+// Function to allocate memory for a matrix
+int **allocateMatrix(int rows, int cols) {
+    int **matrix = (int **)malloc(rows * sizeof(int *));
+    for (int i = 0; i < rows; i++) {
+        matrix[i] = (int *)malloc(cols * sizeof(int));
+    }
+    return matrix;
+}
 
-void addMatrices(int a[MAX_SIZE][MAX_SIZE], int b[MAX_SIZE][MAX_SIZE], int result[MAX_SIZE][MAX_SIZE], int rows, int cols, int i, int j) {
+// Function to free memory allocated for a matrix
+void freeMatrix(int **matrix, int rows) {
+    for (int i = 0; i < rows; i++) {
+        free(matrix[i]);
+    }
+    free(matrix);
+}
+
+// Function to add matrices using pure recursion
+void addMatrices(int **a, int **b, int **result, int rows, int cols, int i, int j) {
     if (i == rows) {
         return;
     }
@@ -15,7 +32,8 @@ void addMatrices(int a[MAX_SIZE][MAX_SIZE], int b[MAX_SIZE][MAX_SIZE], int resul
     }
 }
 
-void displayMatrix(int matrix[MAX_SIZE][MAX_SIZE], int rows, int cols) {
+// Function to display a matrix
+void displayMatrix(int **matrix, int rows, int cols) {
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             printf("%d\t", matrix[i][j]);
@@ -31,7 +49,9 @@ int main() {
     printf("Enter the number of rows and columns for matrices: ");
     scanf("%d %d", &rows, &cols);
 
-    int matrixA[MAX_SIZE][MAX_SIZE], matrixB[MAX_SIZE][MAX_SIZE], result[MAX_SIZE][MAX_SIZE];
+    int **matrixA = allocateMatrix(rows, cols);
+    int **matrixB = allocateMatrix(rows, cols);
+    int **result = allocateMatrix(rows, cols);
 
     // Input elements of matrix A
     printf("Enter elements of matrix A:\n");
@@ -62,6 +82,11 @@ int main() {
     // Display the result matrix
     printf("Resultant Matrix:\n");
     displayMatrix(result, rows, cols);
+
+    // Free allocated memory
+    freeMatrix(matrixA, rows);
+    freeMatrix(matrixB, rows);
+    freeMatrix(result, rows);
 
     return 0;
 }
