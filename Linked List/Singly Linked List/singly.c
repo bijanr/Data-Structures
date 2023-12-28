@@ -8,6 +8,7 @@ typedef struct node {
 
 void input(Node* list, int i, int size);
 void traverse(Node* list);
+void sortLinkedList(Node* list);
 
 
 int main()  {
@@ -19,7 +20,7 @@ int main()  {
     printf(" *Linked List Operations*");
     while(loop == 0)
     {
-        printf("\n1. Creation\n2. Insertion (Beginning)\n3. Insertion (End)\n4. Insertion (N Position)\n5. Deletion(Beginning)\n6. Deletion(End)\n7. Deletion(N Position)\n8. Peek and Count\n9.Average \n10. Traverse\n11. Quit\n");
+        printf("\n1. Creation\n2. Insertion (Beginning)\n3. Insertion (End)\n4. Insertion (N Position)\n5. Deletion(Beginning)\n6. Deletion(End)\n7. Deletion(N Position)\n8. Peek and Count\n9.Average \n10. Sort \n11. Traverse\n12. Quit\n");
         scanf("%d", &choice);
         switch (choice)
         {
@@ -60,34 +61,31 @@ int main()  {
                 break;
 
 
-            case 4: // insertion of element at tNh position
+            case 4: // insertion of element at Nth position
                 list = head;
                 int count = 1;
-                while(list != NULL)
-                {
+                while (list != NULL) {
                     list = list->next;
                     count++;
                 }
                 invalid:
                 printf("Enter any element between index 2 to %d : ", count);
                 scanf("%d", &location);
-                if(location < 2 || location >count){
+                if (location < 2 || location > count) {
                     printf("Enter correct Index! ");
                     goto invalid;
                 }
-                newNode = (Node*)calloc(1,sizeof(Node));
+                newNode = (Node*)calloc(1, sizeof(Node));
                 printf("Enter the element to add in location %d : ", location);
                 scanf("%d", &newNode->data);
-                list  = head;
-                for(i = 2; i< location; i++)
-                {
+                list = head;
+                for (i = 2; i < location; i++) {
                     list = list->next;
                 }
-                Node* temp = (Node*)calloc(1,sizeof(Node));
+                Node* temp = (Node*)calloc(1, sizeof(Node));
                 temp = list->next;
                 list->next = newNode;
                 newNode->next = temp;
-                free(temp);
                 count = 1;
                 break;
 
@@ -115,6 +113,7 @@ int main()  {
 
             case 7: //deletion at n position
                 list = head;
+                count = 1; // Reset count to 1
                 while(list != NULL)
                 {
                     list = list->next;
@@ -122,15 +121,15 @@ int main()  {
                 }
 
                 invalid1:
-                printf("Enter any element from 2 to %d: ", count);
+                printf("Enter any element from 2 to %d: ", count - 1);
                 scanf("%d", &location);
-                if(location<2 || location>count){
+                if(location < 2 || location >= count){
                     printf("Invalid Position");
                     goto invalid1;
                 }
 
                 list = head;
-                for(int i = 2; i<location; i++){
+                for(int i = 2; i < location; i++){
                     list = list->next;
                 }
                 printf("Deleted item: %d", list->next->data);
@@ -142,6 +141,7 @@ int main()  {
             
             case 8: 
                 list = head;
+                count = 0;
                 while(list != NULL){
                     list = list->next;
                     count++;
@@ -151,36 +151,40 @@ int main()  {
                 count = 1;
                 break;
 
-            case 9:
+            case 9: //average
                 list = head;
-                int average = 0;
+                float average = 0;
                 int sum = 0, c = 1;
                 while(list != NULL){
                     sum += list->data;
                     list = list->next;
                     c++;
                 }
-                
                 average = sum/c;
                 printf("The average = %f", average);
                 break;
-            case 10: //displaying
+
+            case 10: //sorting
+                list = head;
+                sortLinkedList(list);
+                break;
+
+            case 11: //displaying
                 list = head;
                 printf("The list is: ");
                 traverse(list);
                 break;
-            case 11: 
+
+            case 12: 
                 printf("Terminated!\n");
                 loop = 1;
                 break;
+
             default:
                 printf("Enter Correct Choice: ");
                 break;
         }
     }
-    
-
-    
 }
 
 void input(Node* list, int i, int size){
@@ -193,6 +197,33 @@ void input(Node* list, int i, int size){
         list = list->next;
 
     }
+}
+
+void sortLinkedList(Node* list) {
+    int swapped;
+    Node* ptr1;
+    Node* lptr = NULL;
+
+    if (list == NULL)
+        return;
+
+    do {
+        swapped = 0;
+        ptr1 = list;
+
+        while (ptr1->next != lptr) {
+            if (ptr1->data > ptr1->next->data) {
+                // Swap data
+                int temp = ptr1->data;
+                ptr1->data = ptr1->next->data;
+                ptr1->next->data = temp;
+
+                swapped = 1;
+            }
+            ptr1 = ptr1->next;
+        }
+        lptr = ptr1;
+    } while (swapped);
 }
 
 //displaying

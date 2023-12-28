@@ -2,16 +2,16 @@
 
 #define MAX_SIZE 10
 
-void addMatrices(int a[MAX_SIZE][MAX_SIZE], int b[MAX_SIZE][MAX_SIZE], int result[MAX_SIZE][MAX_SIZE], int rows, int cols, int i, int j) {
+void subtractMatrices(int a[MAX_SIZE][MAX_SIZE], int b[MAX_SIZE][MAX_SIZE], int result[MAX_SIZE][MAX_SIZE], int rows, int cols, int i, int j) {
     if (i == rows) {
         return;
     }
 
     if (j == cols) {
-        addMatrices(a, b, result, rows, cols, i + 1, 0);
+        subtractMatrices(a, b, result, rows, cols, i + 1, 0);
     } else {
-        result[i][j] = a[i][j] + b[i][j];
-        addMatrices(a, b, result, rows, cols, i, j + 1);
+        result[i][j] = a[i][j] - b[i][j];
+        subtractMatrices(a, b, result, rows, cols, i, j + 1);
     }
 }
 
@@ -56,8 +56,8 @@ int main() {
         }
     }
 
-    // Add matrices using pure recursion
-    addMatrices(matrixA, matrixB, result, rows, cols, 0, 0);
+    // Subtract matrices using pure recursion
+    subtractMatrices(matrixA, matrixB, result, rows, cols, 0, 0);
 
     // Display the result matrix
     printf("Resultant Matrix:\n");
