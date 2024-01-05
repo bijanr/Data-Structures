@@ -71,22 +71,7 @@ void postorderTraversal(struct node *node)
     postorderTraversal(node->right);
     printf("%d ", node->data);
 }
-//todo Smallest Element --5
-struct node *findSmallestElement(struct node *tree)
-{
-    if ((tree == NULL) || (tree->left == NULL))
-        return tree;
-    else
-        return findSmallestElement(tree->left);
-}
-//todo largest Element --6
-struct node *findLargestElement(struct node *tree)
-{
-    if ((tree == NULL) || (tree->right == NULL))
-        return tree;
-    else
-        return findLargestElement(tree->right);
-}
+
 //todo Delete an Element-7
 struct node *minValueNode(struct node *node)
 {
@@ -142,24 +127,7 @@ int totalNodes(struct node *tree)
     else
         return (totalNodes(tree->left) + totalNodes(tree->right) + 1);
 }
-//todo External Nodes (recursion)--9
-int totalExternalNodes(struct node *tree)
-{
-    if (tree == NULL)
-        return 0;
-    else if ((tree->left == NULL) && (tree->right == NULL))
-        return 1;
-    else
-        return (totalExternalNodes(tree->left) + totalExternalNodes(tree->right));
-}
-//todo Internal Nodes (recursion)--10
-int totalInternalNodes(struct node *tree)
-{
-    if ((tree == NULL) || ((tree->left == NULL) && (tree->right == NULL)))
-        return 0;
-    else
-        return (totalInternalNodes(tree->left) + totalInternalNodes(tree->right) + 1);
-}
+
 //todo Height of a Tree (recursion)-11
 int Height(struct node *tree)
 {
@@ -197,7 +165,7 @@ int main()
     printf("\n***************************************************");
     printf("\n***--------Main Menu--------***");
     printf("\nPress the following keys for following functions");
-    printf("\n1)  Insert Element\n2)  Preorder Traversal\n3)  Inorder Traversal\n4)  Postorder Traversal\n5)  Smallest Element\n6)  Largest Element\n7)  Delete an Element\n8)  Count the no of Nodes\n9)  No of External Nodes\n10) No of Internal Nodes\n11) Height of Tree\n12) Delete the Tree\n13) Exit\n");
+    printf("\n1)  Insert Element\n2)  Preorder Traversal\n3)  Inorder Traversal\n4)  Postorder Traversal\n5)  Delete an Element\n6.)  Count the no of Nodes\n7) Height of Tree\n8) Delete the Tree\n9) Exit\n");
     do
     {
         printf("\nYou want to Perform Function No : ");
@@ -216,45 +184,30 @@ int main()
         case 4:
             postorderTraversal(head);
             break;
-        case 5:
-            printf("\nThe Smallest Element is : %d", findSmallestElement(head)->data);
-            break;
-        case 6:
-            printf("\nThe Largest Element is : %d", findLargestElement(head)->data);
-
-            break;
-        case 7:
+        case 5: 
             printf("\nEnter the value You want to delete : ");
             int key;
             scanf("%d", &key);
             deleteNode(head, key);
             break;
-        case 8:
+        case 6:
             tn = totalNodes(head);
             printf("\nThe Total no of Nodes are : %d", tn);
             break;
-        case 9:
-            TEN = totalExternalNodes(head);
-            printf("\nThe Total no of External Nodes are : %d", TEN);
-            break;
-        case 10:
-            TIN = totalInternalNodes(head);
-            printf("\nThe total no of internal nodes is : %d", TIN);
-            break;
-        case 11:
+        case 7:
             height = Height(head);
             printf("\nThe Height of the Tree is %d", height);
             break;
-        case 12:
+        case 8:
             deleteTree(head);
             break;
-        case 13:
-            //! writing so that it does not come in default when we select option 12
+        case 9:
+            //! writing so that it does not come in default when we select option 8
             break;
         default:
             printf("\nInvalid Option key is pressed\n");
             break;
         }
-    } while (option != 13);
+    } while (option != 9);
     return 0;
 }
