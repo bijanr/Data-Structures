@@ -24,7 +24,7 @@ Data structure provide an easy way of organizing, retrieving, managing, and stor
 1. Primitive DS - Directly supported by the language
 2. Non- Primitive DS(Linear and Non-Linear) - Not defined by the programming language. 
 
-    Linear DS- Data elements are arranged sequentially or linearly, where each element is attached to its previou and next adjacent elements.
+    Linear DS- Data elements are arranged sequentially or linearly, where each element is attached to its previous and next adjacent elements.
     For eg, Linked list, Stack, Queue, Array
         Static DS - Has a fixed memory size. Easier to access the elements in a static data structure. For eg, Arrays
 

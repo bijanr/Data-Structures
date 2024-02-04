@@ -42,12 +42,12 @@ int main()  {
                 newNode = (Node*)calloc(1,sizeof(Node));
                 printf("Enter element to add at beginning: ");
                 scanf("%d", &newNode->data);
-                newNode->next = head;
+                newNode->next = head; 
                 head = newNode;
                 break;
 
 
-            case 3: //insertion of element at the end.
+            case 3: //insertion of element at the end. 
                 newNode = (Node*)calloc(1,sizeof(Node));
                 printf("Enter element to add at end: ");
                 scanf("%d", &newNode->data);
@@ -90,12 +90,18 @@ int main()  {
                 break;
 
 
-            case 5: //deleting on beginning
-                list = head;
-                printf("Element deleted: %d", head->data);
-                head = head->next;
-                list->next = NULL;
-                break;
+            case 5: // Deleting at the beginning
+                if (head != NULL) {
+                    list = head;
+                    printf("Element deleted: %d", head->data);
+                    head = head->next;
+                    free(list); // Free the memory of the deleted node
+                    break;
+                } else {
+                    printf("List is empty. Unable to delete.\n");
+                    break;
+                }
+
 
             case 6: //deletion at end
                 list = head;
@@ -138,7 +144,6 @@ int main()  {
                 temp->next = NULL;
                 count = 1;
                 break;
-            
             case 8: 
                 list = head;
                 count = 0;
@@ -217,7 +222,6 @@ void sortLinkedList(Node* list) {
                 int temp = ptr1->data;
                 ptr1->data = ptr1->next->data;
                 ptr1->next->data = temp;
-
                 swapped = 1;
             }
             ptr1 = ptr1->next;

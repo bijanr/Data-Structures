@@ -16,29 +16,42 @@ void insertElement()
     newnode = (struct node *)malloc(sizeof(struct node));
     printf("\nEnter The Value you want to Add : ");
     scanf("%d", &newnode->data);
-    int val = newnode->data;
     newnode->left = NULL;
     newnode->right = NULL;
 
     if (head == NULL)
     {
         head = newnode;
+        return; // No need to continue if the tree was initially empty
     }
-    else
+
+    temp = head;
+    while (temp != NULL)
     {
-        temp = head;
-        while (temp != NULL)
+        if (newnode->data < temp->data)
         {
-            parentptr = temp;
-            if (val < temp->data)
-                temp = temp->left;
+            if (temp->left == NULL)
+            {
+                temp->left = newnode;
+                return; // Inserted the node, exit the function
+            }
             else
-                temp = temp->right;
+            {
+                temp = temp->left;
+            }
         }
-        if (val < parentptr->data)
-            parentptr->left = newnode;
-        else
-            parentptr->right = newnode;
+        else //newnode->data > temp->data
+        {
+            if (temp->right == NULL)
+            {
+                temp->right = newnode;
+                return; // Inserted the node, exit the function
+            }
+            else
+            {
+                temp = temp->right;
+            }
+        }
     }
 }
 //todo Preorder Traversal (recursion)
@@ -85,16 +98,13 @@ struct node *minValueNode(struct node *node)
 }
 struct node *deleteNode(struct node *root, int key)
 {
-
     if (root == NULL)
         return root;
 
     if (key < root->data)
         root->left = deleteNode(root->left, key);
-
     else if (key > root->data)
         root->right = deleteNode(root->right, key);
-
     else
     {
         // node with only one child or no child
@@ -111,10 +121,14 @@ struct node *deleteNode(struct node *root, int key)
             return temp;
         }
 
+        // node with two children, get the in-order successor (smallest
+        // in the right subtree)
         struct node *temp = minValueNode(root->right);
 
+        // Copy the in-order successor's data to this node
         root->data = temp->data;
 
+        // Delete the in-order successor
         root->right = deleteNode(root->right, temp->data);
     }
     return root;
@@ -159,7 +173,7 @@ void deleteTree(struct node *tree)
 // main function
 int main()
 {
-    int tn, TEN, TIN, height;
+    int tn, height;
     int option = 0;
     printf("\n**********--Tree Data Structure Program--**********");
     printf("\n***************************************************");

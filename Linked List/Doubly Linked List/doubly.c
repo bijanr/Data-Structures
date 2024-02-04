@@ -105,11 +105,16 @@ int main() {
                 while (list->next->next != NULL) {
                     list = list->next;
                 }
+                if(list->prev != NULL){
+                    list->prev->next = NULL;
+                }
                 printf("Element deleted: %d", list->next->data);
-                temp = (Node*)calloc(1, sizeof(Node));
-                temp = list->next;
-                list->next = NULL;
-                free(temp);
+                free(list);
+                // printf("Element deleted: %d", list->next->data);
+                // temp = (Node*)calloc(1, sizeof(Node));
+                // temp = list->next;
+                // list->next = NULL;
+                // free(temp);
                 break;
 
             case 7: // deletion at n position

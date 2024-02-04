@@ -1,4 +1,4 @@
-// in Selection sort we select an element from the INDEX and compare it with the next Least element (m,inimum element )
+// in Selection sort we select an element from the INDEX and compare it with the next Least element (minimum element )
 // suppose we have [9,2,5,6,7,1,10] here we have to compare 9[i=0 index] with least element [min ] compared to 9
 
 #include <stdio.h>
