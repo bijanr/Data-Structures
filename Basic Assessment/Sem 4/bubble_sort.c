@@ -34,7 +34,7 @@ int *alloc(int limit){
 }
 
 void inputArray(int* array, int limit){
-    printf("Enter the array: ");
+    printf("Enter the array: \n");
     for(int i = 0; i < limit; i++){
         scanf("%d", &array[i]);
     }
