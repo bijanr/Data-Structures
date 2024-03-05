@@ -1,0 +1,21 @@
+An algorithm is a sequential procedure to solve a particular problem.
+
+Properties of an algorithm : 
+- An algorithm has a finite number of steps.
+- An algorithm should be robust. Less time and space complexity.
+
+Why we need algorithms : 
+- To get a clear overview of the particular problem.
+
+Q. Write an algorithm to find all the prime numbers in the range {2,...,n}, where n is the nth element.
+
+    S1. Start
+    S2. input(n)
+    S3. for(i = 3; i <= n; i = i+2)
+    S4.     for(j = 3; j <= sqrt(i); j = j+2)
+    S5.         if(i % j == 0)
+    S6.             count++
+    S7.             break
+    S8.     if(count == 0)? print(i)
+
+Q. Write a ROBUST algorithm to find all the prime numbers in the range {2,...,n}, where n is the nth element.
