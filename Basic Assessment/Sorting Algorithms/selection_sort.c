@@ -59,7 +59,6 @@ void selectionSortAsc(int arr[], int n)
             swap(&arr[min], &arr[i]);
     }
 }
-
 void selectionSortDesc(int arr[], int n)
 {
     int i, j, max;

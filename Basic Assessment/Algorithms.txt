@@ -19,3 +19,10 @@ Q. Write an algorithm to find all the prime numbers in the range {2,...,n}, wher
     S8.     if(count == 0)? print(i)
 
 Q. Write a ROBUST algorithm to find all the prime numbers in the range {2,...,n}, where n is the nth element.
+Q. Consider an infix algebric expression. Write an algorithm to find its equivalent postfix expression, hence evaluate the expression.
+Q. Consider an infix algebric expression. Write an algorithm to create a unique binary tree. 
+Q. Consider an postfix algebric expression. Write an algorithm to create a unique binary tree.
+Q. Given a list of numbers, design an algorithm to create a max heap.
+Q. Given a list of numbers, design an algorithm to create a min heap.
+Q. Given a list of numbers, design an algorithm to sort the list in ascending order using a max heap.
+Q. Given a list of numbers, design an algorithm to sort the list in descending order using a min heap.
