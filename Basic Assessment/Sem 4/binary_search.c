@@ -29,6 +29,7 @@ int main(){
     scanf("%d", &key);
     sort(list, limit);
     printf("Want to display the list: \n");
+    scanf("%d", )
     display(list, limit);
     int keySearch = search(list, key, limit);   //storing the status of finding the element inside the list
     (keySearch == -1)? printf("Element not found.\n") : printf("ELement %d is located at %d", key, keySearch+1);
