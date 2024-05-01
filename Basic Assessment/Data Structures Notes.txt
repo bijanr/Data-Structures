@@ -106,6 +106,10 @@ Complete Binary Tree- Every intermediate node has exacty 2 children and all leaf
 Almost Binary Tree- Every intermediate node has exacty 2 children and all leaf nodes are in the same level
 and are in level H or H-1 and filling all intermediate nodes from left to right.
 
+Full K-ary Tree-
+Complete K-ary Tree- 
+Almost complete K-ary Tree-   
+
 
 Total degree = 2 * e (where, e is number of edges)
 
@@ -120,6 +124,7 @@ Total number of full nodes = n+1/ 2
 Total number of intermediate nodes = n-1/ 2
 
 Q. Consider a full k-ary tree. Find out the number of leaf nodes.
+Q. Find height of a complete k-ary tree.
 Q.For a complete binary tree, H is the height and N is the number of nodes. Therefore, find the relation between N and H.
 If height is H there are 2^H number of nodes and also (N+1)/2 so, 2^H = (N+1)/ 2
                                                                   h = ln(n+1/ 2)
@@ -133,6 +138,12 @@ If height is H there are 2^H number of nodes and also (N+1)/2 so, 2^H = (N+1)/ 2
                                                     h+1 = log(n+1)
                                                     so,  h = ln(n+1) - 1
 
+    For an almost complete binary tree : 
+            total number of nodes  : 2^(H - 1) - 1x, we need atleast one child to make it complete
+
+        - in complete binary tree: 
+            number of total nodes : 2^(Height) for eg 2^0 + 2^1 + ... + 2^H
+                                    therefore we can derive a gp series, contact line 129
 
 
 
@@ -146,3 +157,7 @@ Applications of Stack:
 2. Used to evaluate postfix expression.
 3. Used to convert an infix to post, prefix.
 4. In recursion, all intermediate arguments and return values are stored on the processor's stack.
+
+Binary Tree
+Free tree - 
+Rooted tree - 
